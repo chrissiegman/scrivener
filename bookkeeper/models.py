@@ -3,6 +3,9 @@ from django.db import models
 
 class Account(models.Model):
 
+    def __str__(self):
+        return self.account_name
+
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     account_name = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
@@ -10,6 +13,9 @@ class Account(models.Model):
     initial_balance = models.DecimalField(max_digits=6, decimal_places=2)
 
 class Transaction(models.Model):
+
+    def __str__(self):
+        return self.description
 
     CREDIT = 'C'
     DEBIT = 'D'
