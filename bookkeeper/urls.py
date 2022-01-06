@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
 
+from bookkeeper.views import AccountListView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', AccountListView.as_view(), name='account-list'),
 ]
