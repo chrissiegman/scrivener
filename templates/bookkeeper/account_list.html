@@ -1,10 +1,16 @@
 <h1>Accounts</h1>
 
+<h3>Add an account</h3>
+
 <ul>
 {% for account in object_list %}
     <li>{{ account.account_name }}</li>
     <ul>
-        {{ account.transaction_set.all }}
+    {% for transaction in account.transaction_set.all %}
+        <li>{{ transaction }}</li>
+    {% empty %}
+        <li>No transactions for this account</li>
+    {% endfor %}
     </ul>
 {% empty %}
     <li>No accounts created yet.</li>
