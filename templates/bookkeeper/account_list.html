@@ -4,10 +4,10 @@
 
 <ul>
 {% for account in object_list %}
-    <li>{{ account.account_name }} <a href=''>Edit Account</a> <a href=''>Add transaction</a> <a href=''>Delete Account</a></li>
+    <li>{{ account.account_name }} <a href="{% url 'update-account-form' pk=account.pk %}">Edit</a> <a href="{% url 'delete-account-form' pk=account.pk %}">Delete</a> <a href="{% url 'create-transaction-form' account_id=account.pk %}">Add transaction</a> </li>
     <ul>
     {% for transaction in account.transaction_set.all %}
-        <li>{{ transaction }} <a href=''>Edit</a></li>
+        <li>{{ transaction }} <a href="{% url 'update-transaction-form' pk=transaction.pk %}">Edit</a> <a href="{% url 'delete-transaction-form' pk=transaction.pk %}">Delete</a></li>
     {% empty %}
         <li>No transactions for this account</li>
     {% endfor %}
