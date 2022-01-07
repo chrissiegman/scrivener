@@ -4,7 +4,7 @@
 
 <ul>
 {% for account in object_list %}
-    <li>{{ account.account_name }} <a href="{% url 'update-account-form' pk=account.pk %}">Edit Account</a> <a href=''>Add transaction</a> <a href=''>Delete Account</a></li>
+    <li>{{ account.account_name }} <a href="{% url 'update-account-form' pk=account.pk %}">Edit</a> <a href=''>Add transaction</a> <a href="{% url 'delete-account-form' pk=account.pk %}">Delete</a></li>
     <ul>
     {% for transaction in account.transaction_set.all %}
         <li>{{ transaction }} <a href=''>Edit</a></li>
