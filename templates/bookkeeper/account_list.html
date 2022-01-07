@@ -7,7 +7,7 @@
     <li>{{ account.account_name }} <a href=''>Edit Account</a> <a href=''>Add transaction</a> <a href=''>Delete Account</a></li>
     <ul>
     {% for transaction in account.transaction_set.all %}
-        <li>{{ transaction }}</li>
+        <li>{{ transaction }} <a href=''>Edit</a></li>
     {% empty %}
         <li>No transactions for this account</li>
     {% endfor %}
