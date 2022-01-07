@@ -7,7 +7,7 @@
     <li>{{ account.account_name }} <a href="{% url 'update-account-form' pk=account.pk %}">Edit</a> <a href=''>Add transaction</a> <a href="{% url 'delete-account-form' pk=account.pk %}">Delete</a></li>
     <ul>
     {% for transaction in account.transaction_set.all %}
-        <li>{{ transaction }} <a href=''>Edit</a></li>
+        <li>{{ transaction }} <a href="{% url 'update-transaction-form' pk=transaction.pk %}">Edit</a> <a href="{% url 'delete-transaction-form' pk=transaction.pk %}">Delete</a></li>
     {% empty %}
         <li>No transactions for this account</li>
     {% endfor %}
